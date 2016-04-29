@@ -82,6 +82,7 @@ paths:
         - name: body
           in: body
           required: true
+          description: {"mobile_user":{"nickname":"demo1"}}
           schema:
             type: string
             example:
