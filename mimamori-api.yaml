@@ -50,35 +50,16 @@ paths:
       description: |
         ユーザー一覧を取得します
       parameters:
-        - name: start_latitude
+        - name: invite_code
           in: query
-          description: Latitude component of start location.
-          required: true
-          type: number
-          format: double
-        - name: start_longitude
-          in: query
-          description: Longitude component of start location.
-          required: true
-          type: number
-          format: double
-        - name: end_latitude
-          in: query
-          description: Latitude component of end location.
-          required: true
-          type: number
-          format: double
-        - name: end_longitude
-          in: query
-          description: Longitude component of end location.
-          required: true
-          type: number
-          format: double
+          description: ペアID
+          required: false
+          type: string
       tags:
         - Users
       responses:
         200:
-          description: An array of price estimates by product
+          description: ユーザー一覧の配列
           schema:
             type: array
             items:
