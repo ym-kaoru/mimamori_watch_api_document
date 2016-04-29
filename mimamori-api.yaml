@@ -1,26 +1,23 @@
 swagger: '2.0'
 info:
-  title: Uber API
-  description: Move your app forward with the Uber API
+  title: Mimamori Watch Server API
+  description: This is description
   version: "1.0.0"
 # the domain of the service
-host: api.uber.com
+host: localhost:3000
 # array of all schemes that your API supports
 schemes:
-  - https
+  - http
 # will be prefixed to all paths
-basePath: /v1
+# basePath: /v1
 produces:
   - application/json
 paths:
-  /products:
+  /followers:
     get:
-      summary: Product Types
+      summary: フォロワー一覧取得
       description: |
-        The Products endpoint returns information about the *Uber* products
-        offered at a given location. The response includes the display name
-        and other details about each product, and lists the products in the
-        proper display order.
+        フォロワー一覧取得を取得する
       parameters:
         - name: latitude
           in: query
@@ -35,7 +32,7 @@ paths:
           type: number
           format: double
       tags:
-        - Products
+        - Users
       responses:
         200:
           description: An array of products
@@ -47,18 +44,11 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-  /estimates/price:
+  /mobile_users:
     get:
-      summary: Price Estimates
+      summary: ユーザー一覧取得
       description: |
-        The Price Estimates endpoint returns an estimated price range
-        for each product offered at a given location. The price estimate is
-        provided as a formatted string with the full price range and the localized
-        currency symbol.<br><br>The response also includes low and high estimates,
-        and the [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) currency code for
-        situations requiring currency conversion. When surge is active for a particular
-        product, its surge_multiplier will be greater than 1, but the price estimate
-        already factors in this multiplier.
+        ユーザー一覧を取得します
       parameters:
         - name: start_latitude
           in: query
@@ -85,7 +75,7 @@ paths:
           type: number
           format: double
       tags:
-        - Estimates
+        - Users
       responses:
         200:
           description: An array of price estimates by product
