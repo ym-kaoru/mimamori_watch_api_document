@@ -84,12 +84,10 @@ paths:
           required: true
           schema:
             type: string
-            example: |
-              {
-                "mobile_user":{
-                  "nickname":"demo1"
-                }
-              }
+            example:
+              mobile_user:
+                  nickname: demo1
+
   /mobile_users/{id}/reset_friend_token:
     post:
       summary: ペアID再発行
